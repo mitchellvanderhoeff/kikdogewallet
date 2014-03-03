@@ -1,0 +1,52 @@
+<ion-view title="'Dogecoin Wallet'" right-buttons="menuButtons">
+  <ion-content
+  scroll="true"
+  has-header="true"
+  on-refresh="updateWallet()">
+
+    <ion-refresher>
+    </ion-refresher>
+
+    <div class="wow card positive">
+      <div class="wow item item-divider item-positive">
+        Quite Balance
+      </div>
+      <div class="item item-text-wrap">
+        <h1 class="wow">
+          <span ng-if="wallet.balance != null">Ð{{ wallet.balance | number }}</span>
+          <span ng-if="wallet.balance == null">Ð???</span>
+        </h1>
+      </div>
+    </div>
+
+    <div class="wow card">
+      <div class="wow item item-divider">
+        Wow Address
+      </div>
+      <div class="wow very-address item">
+        {{ wallet.address || 'Loading..' }}
+      </div>
+    </div>
+
+    <div class="wow card">
+      <div class="item item-divider">
+        Much Send
+      </div>
+      <div class="list list-inset">
+        <label class="wow item item-input">
+          Ð&nbsp;
+          <input class="wow" type="number" placeholder="Very Amount" ng-model="sendCoinsAmount">
+        </label>
+        <button class="wow button button-block" ng-click="sendCoins(sendCoinsAmount)">
+          Send
+          <i class="icon ion-ios7-arrow-thin-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="wow card" ng-show="error">
+      {{ error }}
+    </div>
+  </ion-content>
+
+</ion-view>

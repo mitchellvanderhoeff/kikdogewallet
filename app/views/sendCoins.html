@@ -1,0 +1,26 @@
+<div class="modal" ng-controller="SendCoinsCtrl">
+  <header class="bar bar-header bar-stable">
+    <h1 class="wow title">Very Send</h1>
+  </header>
+  <ion-content has-header="true" has-footer="true" padding="true">
+    <div class="padding">
+      <div class="card">
+        <div class="wow item item-divider item-positive">
+          Send Coins
+        </div>
+        <h3 class="wow item item-text-wrap">
+          Are you sure you want to send Ð{{ transaction.amount }} to {{ transaction.to.fullName }}?
+        </h3>
+      </div>
+      <div class="card">
+        <a class="wow button button-block button-stable" ng-click="confirmSendCoins()">
+          Much Confirm
+          <i class="icon ion-ios7-arrow-thin-right"></i>
+        </a>
+      </div>
+    </div>
+  </ion-content>
+  <footer class="bar bar-footer bar-stable">
+  <button class="wow button button-clear" ng-click="modal.hide()">Cancel</button>
+  </footer>
+</div>

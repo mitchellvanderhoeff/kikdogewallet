@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Dogecoin Wallet</title>
+
+  <meta name="description" content="A Dogecoin wallet for Kik. Wow Doge">
+  <link rel="kik-icon" href="images/dogecoin.png">
+  <link rel="canonical" href="https://kikdogewallet.herokuapp.com/">
+
+  <link rel="icon" href="images/dogecoin.png">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="kik-unsupported" content="android-2.2">
+
+  <script src="scripts/kik.js"></script>
+  <script src="bower_components/ionic/release/js/ionic.bundle.js"></script>
+  <script src="bower_components/underscore/underscore.js"></script>
+  <link rel="stylesheet" href="bower_components/ionic/release/css/ionic.min.css">
+
+  <link rel="stylesheet" href="styles/wow.css"/>
+  <script src="app.js"></script>
+  <script src="scripts/controllers/Main.js"></script>
+  <script src="scripts/controllers/Wallet.js"></script>
+  <script src="scripts/controllers/SendCoins.js"></script>
+  <script src="scripts/controllers/Withdraw.js"></script>
+  <script src="scripts/controllers/History.js"></script>
+  <script src="scripts/services/DogecoinService.js"></script>
+  <script src="scripts/services/WalletManager.js"></script>
+  <script src="scripts/kikMock.js"></script>
+</head>
+<body ng-app="kikDogeWalletApp">
+
+<div ng-controller="MainCtrl">
+  <ion-nav-view></ion-nav-view>
+</div>
+
+</body>
+</html>

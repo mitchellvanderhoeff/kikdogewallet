@@ -1,0 +1,15 @@
+.wow {
+    font-family: 'Comic Sans MS', 'Helvetica Neue', sans-serif;
+}
+
+.much-card {
+    padding: 10px;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    background: #fcfcfc;
+}
+
+.very-address {
+    font-weight: bold;
+    font-size: 11px
+}

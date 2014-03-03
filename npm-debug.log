@@ -1,0 +1,73 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/Cellar/node/0.10.24/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'ionic@master' ]
+2 info using npm@1.3.21
+3 info using node@v0.10.24
+4 warn package.json kikdogewallet-ionic@0.2.0 No repository field.
+5 verbose readDependencies using package.json deps
+6 verbose cache add [ 'ionic@master', null ]
+7 verbose cache add name=undefined spec="ionic@master" args=["ionic@master",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: 'ionic@master',
+8 verbose parsed url   path: 'ionic@master',
+8 verbose parsed url   href: 'ionic@master' }
+9 verbose cache add name="ionic" spec="master" args=["ionic","master"]
+10 verbose parsed url { protocol: null,
+10 verbose parsed url   slashes: null,
+10 verbose parsed url   auth: null,
+10 verbose parsed url   host: null,
+10 verbose parsed url   port: null,
+10 verbose parsed url   hostname: null,
+10 verbose parsed url   hash: null,
+10 verbose parsed url   search: null,
+10 verbose parsed url   query: null,
+10 verbose parsed url   pathname: 'master',
+10 verbose parsed url   path: 'master',
+10 verbose parsed url   href: 'master' }
+11 verbose addNamed [ 'ionic', 'master' ]
+12 verbose addNamed [ null, null ]
+13 silly lockFile 8fbcaef1-ionic-master ionic@master
+14 verbose lock ionic@master /Users/mitch/.npm/8fbcaef1-ionic-master.lock
+15 info addNameTag [ 'ionic', 'master' ]
+16 verbose url raw ionic
+17 verbose url resolving [ 'https://registry.npmjs.org/', './ionic' ]
+18 verbose url resolved https://registry.npmjs.org/ionic
+19 info trying registry request attempt 1 at 13:53:34
+20 verbose etag "VG5A6BH9J7Z6AWJJYDMYJH5N"
+21 http GET https://registry.npmjs.org/ionic
+22 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+23 info trying registry request attempt 2 at 13:53:45
+24 verbose etag "VG5A6BH9J7Z6AWJJYDMYJH5N"
+25 http GET https://registry.npmjs.org/ionic
+26 info retry will retry, error on last attempt: Error: SELF_SIGNED_CERT_IN_CHAIN
+27 info trying registry request attempt 3 at 13:54:46
+28 verbose etag "VG5A6BH9J7Z6AWJJYDMYJH5N"
+29 http GET https://registry.npmjs.org/ionic
+30 silly registry.get cb [ 304, undefined ]
+31 verbose etag ionic from cache
+32 silly lockFile 8fbcaef1-ionic-master ionic@master
+33 silly lockFile 8fbcaef1-ionic-master ionic@master
+34 error notarget No compatible version found: ionic@'master'
+34 error notarget Valid install targets:
+34 error notarget ["0.9.6","0.9.8","0.9.9","0.9.10","0.9.11","0.9.12","0.9.13","0.9.14","0.9.15","0.9.16"]
+34 error notarget
+34 error notarget This is most likely not a problem with npm itself.
+34 error notarget In most cases you or one of your dependencies are requesting
+34 error notarget a package version that doesn't exist.
+35 error System Darwin 13.0.0
+36 error command "/usr/local/Cellar/node/0.10.24/bin/node" "/usr/local/bin/npm" "install" "ionic@master"
+37 error cwd /Users/mitch/dev/web/KikDogeWallet-ionic
+38 error node -v v0.10.24
+39 error npm -v 1.3.21
+40 error code ETARGET
+41 verbose exit [ 1, true ]
