@@ -81,7 +81,7 @@ app.post('/getTransactions', kikAuth, function (req, res) {
    });
 });
 
-app.use(express.static(__dirname + (process.env.APP_PATH || '/app')));
+app.use(express.static(__dirname + (process.env.APP_PATH || '/dist')));
 
 if (process.env.DEBUG) {
    console.log("Running in debug mode.");
