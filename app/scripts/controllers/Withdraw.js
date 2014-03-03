@@ -13,36 +13,36 @@ function WithdrawCtrl($scope, Wallet) {
       $scope.error = null;
    };
 
-   function showAlert(message) {
+   function showError(message) {
       $scope.error = message;
    }
 
    $scope.confirmWithdraw = function (address, amountStr) {
       if (!amountStr || amountStr.length == 0) {
-         showAlert("You must enter a valid amount!");
+         showError("You must enter a valid amount!");
          return;
       }
       if (!address || address.length != 34) {
-         showAlert("You must enter a valid address!");
+         showError("You must enter a valid address!");
          return;
       }
       if (address == $scope.wallet.address) {
-         showAlert("You can't withdraw to your own address!")
+         showError("You can't withdraw to your own address!")
       }
       var amount = parseFloat(amountStr);
       if (amount < 5.0) {
-         showAlert("You can't withdraw less than Ð5!");
+         showError("You can't withdraw less than Ð5!");
          return;
       }
       if ($scope.wallet.balance < amount) {
-         showAlert('Your balance is too low!');
+         showError('Your balance is too low!');
          return;
       }
       $scope.wallet.withdraw(address, amount, function (error) {
          if (!error) {
-            showAlert("Withdraw successful!")
+            showError("Withdraw successful!")
          } else {
-            showAlert("Unable to withdraw! Reason: " + error);
+            showError("Unable to withdraw! Reason: " + error);
          }
          $scope.amount = null;
          $scope.address = null;
