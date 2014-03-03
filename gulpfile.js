@@ -10,7 +10,7 @@ var nodemon = require('nodemon');
 gulp.task('build', function() {
    bower()
       .pipe(gulp.dest('dist/bower_components/'));
-   gulp.src(['app/scripts/**/*.js', 'app/scripts/*.js'])
+   gulp.src(['app/scripts/**/*.js', 'app/app.js'])
       .pipe(uglify())
       .pipe(gulp.dest('dist/scripts'));
    gulp.src('app/styles/*.css')
