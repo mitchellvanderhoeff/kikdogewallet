@@ -1,15 +1,15 @@
 /**
  * Created by mitch on 2/11/2014.
  */
-var username = 'theMizzler';
+var username = 'eltestador';
 
 if (!(window.kik && window.kik.enabled)) {
    window.kik = {
       getUser: function (callback) {
          callback({
-            fullName: 'Mizzl Drizzl',
-            firstName: 'Mizzl',
-            lastName: 'Drizzl',
+            fullName: 'El Testador',
+            firstName: 'El',
+            lastName: 'Testador',
             username: username
          })
       },
@@ -22,7 +22,7 @@ if (!(window.kik && window.kik.enabled)) {
                fullName: 'Shibes McDoge',
                firstName: 'Shibes',
                lastName: 'McDoge',
-               username: 'jemaiseenma'
+               username: 'wowmuchusername'
             }
          ])
       },

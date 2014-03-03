@@ -36,7 +36,12 @@ module.exports = {
             }, {
                token: 1
             }, function (error, tokenEntry) {
-               var tokenValid = (authResponse.ok && authResponse.body == tokenEntry.token && !error && tokenEntry) || process.env.DEBUG;
+               if (process.env.DEBUG) {
+                  console.log("Debug mode, bypassing auth");
+                  callback(true);
+                  return;
+               }
+               var tokenValid = (authResponse.ok && authResponse.body == tokenEntry.token && !error && tokenEntry);
                callback(tokenValid);
             });
          });

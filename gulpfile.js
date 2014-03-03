@@ -5,6 +5,7 @@ var gulp = require('gulp');
 var uglify = require('gulp-uglify');
 var minifyCSS = require('gulp-minify-css');
 var bower = require('gulp-bower');
+var nodemon = require('nodemon');
 
 gulp.task('build', function() {
    bower()
@@ -23,3 +24,11 @@ gulp.task('build', function() {
       .pipe(gulp.dest('dist/images'));
 });
 
+gulp.task('dev', function () {
+   nodemon({
+      script: 'main.js',
+      env: {
+         "DEBUG": true
+      }
+   })
+});
