@@ -5,7 +5,7 @@
     "angular": "1.2.9",
     "angular-resource": "1.2.6",
     "angular-cookies": "1.2.6",
-    "angular-sanitize": "1.2.6",
+     "angular-sanitize": "~1.2.14",
     "angular-route": "1.2.6",
      "underscore": "~1.6.0",
      "ionic": "~0.9.26"
@@ -15,6 +15,7 @@
     "angular-scenario": "1.2.6"
   },
   "resolutions": {
-     "angular": "1.2.6"
+     "angular": "1.2.12",
+     "angular-sanitize": "1.2.12"
   }
 }
