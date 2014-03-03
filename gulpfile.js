@@ -7,7 +7,7 @@ var minifyCSS = require('gulp-minify-css');
 var bower = require('gulp-bower');
 var nodemon = require('nodemon');
 
-gulp.task('build', function() {
+gulp.task('build', function () {
    bower()
       .pipe(gulp.dest('dist/bower_components/'));
    gulp.src(['app/**/*.js', 'app/app.js'])
@@ -28,7 +28,7 @@ gulp.task('dev', function () {
    nodemon({
       script: 'main.js',
       env: {
-         "APP_PATH": "/app"
+         "APP_PATH": "/app",
          "DEBUG": true
       }
    })
