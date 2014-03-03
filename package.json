@@ -17,7 +17,8 @@
       "gulp-clean": "~0.2.4",
       "cryptojs": "~2.5.3",
       "nodemon": "~1.0.14",
-      "requirejs": "~2.1.10"
+      "requirejs": "~2.1.10",
+      "mongojs": "~0.10.0"
    },
    "engines": {
       "node": "0.8.0"

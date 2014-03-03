@@ -2,14 +2,14 @@
  * Created by mitch on 2/9/2014.
  */
 
-var Mongolian = require('mongolian');
+var MongoJS = require('mongojs');
 
 var db;
 var mongoHqUrl = process.env.MONGOHQ_URL;
 if (mongoHqUrl) {
-   db = new Mongolian(mongoHqUrl);
+   db = MongoJS(mongoHqUrl);
 } else {
-   db = new Mongolian().db('dogewallet')
+   db = MongoJS('dogewallet');
 }
 
 module.exports = db;
