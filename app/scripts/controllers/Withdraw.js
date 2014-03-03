@@ -9,8 +9,12 @@ function WithdrawCtrl($scope, Wallet) {
       $scope.balanceAfterWithdraw = ($scope.wallet.balance - (withdrawAmount || 0))
    };
 
+   $scope.hideError = function () {
+      $scope.error = null;
+   };
+
    function showAlert(message) {
-      alert(message);
+      $scope.error = message;
    }
 
    $scope.confirmWithdraw = function (address, amountStr) {

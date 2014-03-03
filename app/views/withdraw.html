@@ -20,12 +20,12 @@
           Enter address and amount
         </div>
         <label class="item item-input">
-          <input class="wow" type="text" placeholder="Wow Address" ng-model="address">
+          <input class="wow" type="text" placeholder="Wow Address" ng-model="address" ng-change="hideError()">
         </label>
         <label class="wow item item-input">
           Ð&nbsp;
           <input class="wow" type="number" placeholder="Very Amount" ng-model="amount"
-                 ng-change="updateBalanceAfterWithdraw(amount)">
+                 ng-change="updateBalanceAfterWithdraw(amount); hideError()">
         </label>
       </div>
     </div>
@@ -49,6 +49,15 @@
         Withdraw
         <i class="icon ion-ios7-cloud-upload-outline"></i>
       </a>
+    </div>
+
+    <div class="wow card" ng-show="error">
+      <div class="wow item item-divider item-assertive">
+        Error
+      </div>
+      <div class="wow item item-text-wrap">
+        {{ error }}
+      </div>
     </div>
   </ion-content>
 </ion-view>

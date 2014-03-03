@@ -7,10 +7,6 @@ function WalletCtrl($scope, Wallet, $ionicModal) {
    $scope.errorMessage = null;
    $scope.pendingTransaction = null;
 
-   function showError(message) {
-      alert(message);
-   }
-
    $scope.rightButtons = [
       {
          type: 'button-stable',
@@ -20,6 +16,14 @@ function WalletCtrl($scope, Wallet, $ionicModal) {
          }
       }
    ];
+
+   function showError(message) {
+      $scope.error = message;
+   }
+
+   $scope.hideError = function () {
+      $scope.error = null;
+   };
 
    $scope.updateWallet = function () {
       $scope.wallet.update();
