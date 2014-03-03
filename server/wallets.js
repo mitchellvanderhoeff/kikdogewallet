@@ -97,7 +97,7 @@ self.sendCoins = function (from, to, amount, callback) {
       callback(null, fromWallet);
       Wallets.save(fromWallet);
       this.getWallet(to, function (error, toWallet) {
-         toWallet.balance += amount;
+         toWallet.balance = parseFloat(toWallet.balance) + amount;
          Wallets.save(toWallet);
       });
       TransactionStorage.insertSend(from, to, amount);
