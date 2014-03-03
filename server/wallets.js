@@ -105,10 +105,6 @@ self.sendCoins = function (from, to, amount, callback) {
 };
 
 self.withdraw = function (username, toAddress, amount, callback) {
-   function calculateFees(withdrawAmount) {
-      return (0.005 * withdrawAmount) + 3;
-   }
-
    if (amount < 5) {
       callback("ERROR: Amount is too low", null);
    }
@@ -119,15 +115,17 @@ self.withdraw = function (username, toAddress, amount, callback) {
          callback(error, null);
          return;
       }
-      var fees = calculateFees(amount);
-      var totalCost = amount + fees;
-      if (wallet.balance < totalCost) {
+      if (wallet.balance < amount) {
          callback("ERROR: Not enough balance in wallet for transaction", null);
+         return;
+      }
+      if (toAddress == wallet.address) {
+         callback("ERROR: Cannot withdraw to own address", null);
          return;
       }
       withdraw(toAddress, amount, function (response) {
          if (response.ok) {
-            wallet.balance -= totalCost;
+            wallet.balance -= amount;
             callback(null, wallet);
             TransactionStorage.insertWithdraw(username, amount, toAddress);
          } else {

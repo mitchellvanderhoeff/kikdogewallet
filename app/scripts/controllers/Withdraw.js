@@ -22,6 +22,9 @@ function WithdrawCtrl($scope, Wallet) {
          showAlert("You must enter a valid address!");
          return;
       }
+      if (address == $scope.wallet.address) {
+         showAlert("You can't withdraw to your own address!")
+      }
       var amount = parseFloat(amountStr);
       if (amount < 5.0) {
          showAlert("You can't withdraw less than Ð5!");
