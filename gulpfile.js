@@ -28,6 +28,7 @@ gulp.task('dev', function () {
    nodemon({
       script: 'main.js',
       env: {
+         "APP_PATH": "/app"
          "DEBUG": true
       }
    })
