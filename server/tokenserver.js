@@ -9,11 +9,13 @@ var Unirest = require('unirest');
 module.exports = {
    generateToken: function (username, callback) {
       var token = Crypto.util.bytesToBase64(Crypto.util.randomBytes(16));
-      Tokens.upsert({
+      Tokens.update({
          username: username
       }, {
          username: username,
          token: token
+      }, {
+         upsert: true
       }, function (error, success) {
          if (error || !success) {
             callback(error, null);
