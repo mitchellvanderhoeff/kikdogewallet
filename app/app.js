@@ -5,7 +5,7 @@ var app = angular.module("kikDogeWalletApp", [
    'ionic'
 ]);
 
-app.config(function ($stateProvider, $urlRouterProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
    $stateProvider
       .state('sidebar', {
          url: '/app',
@@ -41,4 +41,4 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       });
 
    $urlRouterProvider.otherwise('/app/wallet');
-});
+}]);
