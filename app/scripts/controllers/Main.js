@@ -12,6 +12,10 @@ function MainCtrl($scope, $ionicSideMenuDelegate) {
          }
       }
    ];
+
+   $scope.openSource = function () {
+      kik.open('https://github.com/mitchellvanderhoeff/kikdogewallet');
+   };
 }
 
 MainCtrl.$inject = ['$scope', '$ionicSideMenuDelegate'];

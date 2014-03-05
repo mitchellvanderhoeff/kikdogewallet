@@ -28,6 +28,9 @@ if (!(window.kik && window.kik.enabled)) {
       },
       send: function (to, data) {
          console.log("Fake send Kik message to '" + to + "': " + JSON.stringify(data));
+      },
+      open: function (url) {
+         console.log("Fake open URL: " + url);
       }
    };
    console.log('Mock kik loaded!');
