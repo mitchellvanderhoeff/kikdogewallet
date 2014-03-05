@@ -24,7 +24,8 @@
         Wow Address
       </div>
       <div class="wow very-address item">
-        {{ wallet.address || 'Loading..' }}
+        <input type="text" select-on-click
+               ng-value="address = wallet.address || 'Loading..'">
       </div>
     </div>
 
