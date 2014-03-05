@@ -62,7 +62,10 @@ self.getWallet = function (username, callback) {
    Wallets.findOne({
       username: username
    }, function (error, wallet) {
-      if (error || !wallet) { // Probably because it doesn't exist
+      if (!wallet) {
+         if (error) {
+            console.error(error);
+         }
          self.createWallet(username, function (newWallet) {
             if (newWallet) {
                callback(null, newWallet);
