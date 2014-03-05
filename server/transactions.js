@@ -29,7 +29,7 @@ self.insertDeposit = function (username, amount) {
 };
 
 self.insertSend = function (from, to, amount) {
-   console.log("Send Ð" + amount + " from " + from + " to " + to);
+   console.log("Sent Ð" + amount + " from " + from + " to " + to);
    Transactions.insert({
       type: "send",
       date: new Date().getTime(),
