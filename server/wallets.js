@@ -128,9 +128,14 @@ self.withdraw = function (username, toAddress, amount, callback) {
       }
       withdraw(toAddress, amount, function (response) {
          if (response.ok) {
+            if (response.body == "Not Enough Doge") {
+               callback("Not enough DOGE", wallet);
+               return;
+            }
             wallet.balance -= amount;
             callback(null, wallet);
-            TransactionStorage.insertWithdraw(username, amount, toAddress);
+            var txId = response.body;
+            TransactionStorage.insertWithdraw(username, amount, toAddress, txId);
          } else {
             callback(response.body, null);
          }
