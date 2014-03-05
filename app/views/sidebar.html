@@ -14,8 +14,8 @@
     <header class="bar bar-header bar-stable">
       <div class="wow title">So Menu</div>
     </header>
-    <ion-content has-header="true">
-      <ul class="list">
+    <ion-content has-header="true" has-footer="true">
+    <ul class="list">
         <a href="#" ui-sref="sidebar.history" class="wow item item-icon-left" ng-click="sideMenuController.close()">
           <i class="icon ion-clipboard"></i>
           Show History
@@ -24,19 +24,14 @@
           <i class="icon ion-ios7-cloud-upload-outline"></i>
           Withdraw
         </a>
-
-        <div class="wow item item-divider">
-          Info
-        </div>
-        <div class="wow item item-text-wrap" style="font-size: 0.87em">
-          Created by Mitchell Van Der Hoeff 2014 <br>
-          Source: <a href="" ng-click="openSource()">
-          mitchellvanderhoeff/kikdogewallet
-        </a>
-        </div>
-
       </ul>
     </ion-content>
+    <footer class="bar bar-footer bar-stable">
+      <h5>Kik Doge Wallet v0.3
+        <a href="" ng-click="openSource()">Source</a>
+      </h5>
+      </a>
+    </footer>
   </ion-side-menu>
 
 </ion-side-menus>
