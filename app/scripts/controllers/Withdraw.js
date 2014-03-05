@@ -2,7 +2,7 @@
  * Created by mitch on 3/1/2014.
  */
 
-function WithdrawCtrl($scope, Wallet) {
+function WithdrawCtrl($scope, Wallet, $ionicLoading) {
    $scope.wallet = Wallet;
 
    $scope.updateBalanceAfterWithdraw = function (withdrawAmount) {
@@ -15,6 +15,21 @@ function WithdrawCtrl($scope, Wallet) {
 
    function showError(message) {
       $scope.error = message;
+   }
+
+   function showLoading() {
+      $scope.loading = $ionicLoading.show({
+         content: 'Withdrawing.. ' +
+            '<i class="icon ion-loading-d"></i>',
+         animation: 'fade-in',
+         showBackdrop: true,
+         maxWidth: 200,
+         showDelay: 0
+      });
+   }
+
+   function hideLoading() {
+      $scope.loading.hide();
    }
 
    $scope.confirmWithdraw = function (address, amountStr) {
@@ -38,10 +53,11 @@ function WithdrawCtrl($scope, Wallet) {
          showError('Your balance is too low!');
          return;
       }
+
+      showLoading();
       $scope.wallet.withdraw(address, amount, function (error) {
-         if (!error) {
-            showError("Withdraw successful!")
-         } else {
+         hideLoading();
+         if (error) {
             showError("Unable to withdraw! Reason: " + error);
          }
          $scope.amount = null;
@@ -52,4 +68,4 @@ function WithdrawCtrl($scope, Wallet) {
    $scope.updateBalanceAfterWithdraw();
    $scope.$on('walletUpdated', $scope.updateBalanceAfterWithdraw);
 }
-WithdrawCtrl.$inject = ['$scope', 'Wallet'];
+WithdrawCtrl.$inject = ['$scope', 'Wallet', '$ionicLoading'];

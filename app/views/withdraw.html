@@ -44,13 +44,6 @@
       </div>
     </div>
 
-    <div class="wow card">
-      <a href="" class="button button-block button-dark" ng-click="confirmWithdraw(address, amount)">
-        Withdraw
-        <i class="icon ion-ios7-cloud-upload-outline"></i>
-      </a>
-    </div>
-
     <div class="wow card" ng-show="error">
       <div class="wow item item-divider item-assertive">
         Error
@@ -58,6 +51,13 @@
       <div class="wow item item-text-wrap">
         {{ error }}
       </div>
+    </div>
+
+    <div class="wow card">
+      <a href="" class="button button-block button-dark" ng-click="confirmWithdraw(address, amount)">
+        Withdraw
+        <i class="icon ion-ios7-cloud-upload-outline"></i>
+      </a>
     </div>
   </ion-content>
 </ion-view>
