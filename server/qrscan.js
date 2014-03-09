@@ -12,7 +12,8 @@ module.exports = function (req, res) {
       })
       .end(function (response) {
          if (response.ok) {
-            res.send(response.body)
+            var addressData = response.body[0].symbol[0].data;
+            res.send(addressData);
          } else {
             res.send(500, response.body);
          }

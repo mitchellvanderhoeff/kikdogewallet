@@ -54,7 +54,7 @@ app.get('/token', function (req, res) {
    });
 });
 
-app.get('/scanQRCode', kikAuth, qrScan);
+app.post('/scanQRCode', kikAuth, qrScan);
 
 app.post('/getWallet', kikAuth, function (req, res) {
    var username = req.body.username;
