@@ -3,7 +3,7 @@
  */
 var Canvas = require('canvas');
 var Image = Canvas.Image;
-var qrcode = require('jsqrcode')();
+var qrcode = require('jsqrcode')(Canvas);
 
 module.exports = function (req, res) {
    var fileurl = req.param('fileurl');
