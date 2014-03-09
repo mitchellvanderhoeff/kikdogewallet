@@ -17,6 +17,9 @@ function HistoryCtrl($scope, Wallet) {
    };
 
    $scope.refresh();
+   $scope.$on('$viewContentLoaded', function () {
+      $scope.sideMenuController.close();
+   });
 }
 
 HistoryCtrl.$inject = ['$scope', 'Wallet'];

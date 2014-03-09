@@ -5,16 +5,13 @@
 function WithdrawCtrl($scope, Wallet, $ionicLoading) {
    $scope.wallet = Wallet;
 
-   $scope.updateBalanceAfterWithdraw = function (withdrawAmount) {
-      $scope.balanceAfterWithdraw = ($scope.wallet.balance - (withdrawAmount || 0))
-   };
-
    $scope.hideError = function () {
       $scope.error = null;
    };
 
    function showError(message) {
       $scope.error = message;
+      setTimeout($scope.hideError, 3000);
    }
 
    function showLoading() {
@@ -65,7 +62,8 @@ function WithdrawCtrl($scope, Wallet, $ionicLoading) {
       });
    };
 
-   $scope.updateBalanceAfterWithdraw();
-   $scope.$on('walletUpdated', $scope.updateBalanceAfterWithdraw);
+   $scope.$on('$viewContentLoaded', function () {
+      $scope.sideMenuController.close();
+   });
 }
 WithdrawCtrl.$inject = ['$scope', 'Wallet', '$ionicLoading'];

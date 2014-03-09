@@ -1,6 +1,7 @@
 <ion-view title="'So Withdraw'">
   <ion-content
   has-header="true"
+  has-footer="true"
   scroll="true"
   >
 
@@ -31,34 +32,14 @@
     </div>
 
     <div class="wow card">
-      <div class="wow item item-divider item-stable">
-        Balance after Withdraw
-      </div>
-      <div class="item item-text-wrap">
-        <h2 class="wow">
-          <strong>
-            <span ng-show="balanceAfterWithdraw >= 0">Ð{{ balanceAfterWithdraw | number }}</span>
-            <span ng-show="balanceAfterWithdraw < 0" class="assertive">Not enough coins!</span>
-          </strong>
-        </h2>
-      </div>
-    </div>
-
-    <div class="wow card" ng-show="error">
-      <div class="wow item item-divider item-assertive">
-        Error
-      </div>
-      <div class="wow item item-text-wrap">
-        {{ error }}
-      </div>
-    </div>
-
-    <div class="wow card">
       <a href="" class="button button-block button-dark" ng-click="confirmWithdraw(address, amount)">
         Withdraw
         <i class="icon ion-ios7-cloud-upload-outline"></i>
       </a>
     </div>
   </ion-content>
+  <footer class="bar bar-footer bar-assertive" ng-show="error">
+    <div class="title">{{ error }}</div>
+  </footer>
 </ion-view>
 
