@@ -35,6 +35,11 @@ if (!(window.kik && window.kik.enabled)) {
       },
       open: function (url) {
          console.log("Fake open URL: " + url);
+      },
+      photo: {
+         get: function (options, callback) {
+            callback(['http://i.imgur.com/caCfegC.png']);
+         }
       }
    };
    console.log('Mock kik loaded!');
