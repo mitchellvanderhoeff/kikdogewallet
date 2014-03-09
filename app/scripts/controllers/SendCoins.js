@@ -4,12 +4,33 @@
 
 function SendCoinsCtrl($scope, Wallet) {
    $scope.wallet = Wallet;
+   $scope.sendToOptions = [
+      {
+         id: 'recipient',
+         description: 'Send message to Recipient'
+      },
+      {
+         id: 'conversation',
+         description: 'Send message to a Conversation'
+      },
+      {
+         id: 'nobody',
+         description: "Don't send message"
+      }
+   ];
 
-   $scope.confirmSendCoins = function () {
+   $scope.data = {
+      sendTo: 'recipient'
+   };
+
+   $scope.confirmSendCoins = function (sendTo) {
       $scope.wallet.sendCoins($scope.transaction.to.username, $scope.transaction.amount,
          function (error) {
             if (!error) { // transaction was successful
-               $scope.sendTransactionMessage($scope.transaction);
+               if (sendTo != 'nobody') {
+                  var sendToCustomConvo = (sendTo == 'conversation');
+                  $scope.sendTransactionMessage($scope.transaction, sendToCustomConvo);
+               }
                $scope.$emit('sendCoinsSuccessful');
             } else {
                console.error(error);
@@ -20,15 +41,15 @@ function SendCoinsCtrl($scope, Wallet) {
          });
    };
 
-   $scope.sendTransactionMessage = function (transaction) {
-      var recipient = $scope.sendToCustomConvo ? transaction.to.firstName : "you";
+   $scope.sendTransactionMessage = function (transaction, sendToCustomConvo) {
+      var recipient = sendToCustomConvo ? transaction.to.firstName : "you";
       var message = {
          title: "Dogecoin Wallet",
          text: "Wow! " + $scope.wallet.firstName + " sent " + recipient + " " + transaction.amount + " Dogecoin! Tap this to open your Dogecoin Wallet.",
          pic: 'images/dogecoin.png',
          noForward: true
       };
-      if ($scope.sendToCustomConvo) {
+      if (sendToCustomConvo) {
          kik.send(message);
       } else {
          kik.send(transaction.to.username, message);

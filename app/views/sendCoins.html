@@ -12,15 +12,18 @@
           Are you sure you want to send Ð{{ transaction.amount }} to {{ transaction.to.fullName }}?
         </h3>
       </div>
-      <div class="card">
-        <a class="wow button button-block button-stable" ng-click="confirmSendCoins()">
-          Much Confirm
-          <i class="icon ion-ios7-arrow-thin-right"></i>
-        </a>
+      <div class="wow card">
+        <div class="list">
+          <ion-radio ng-repeat="option in sendToOptions" ng-model="data.sendTo" ng-value="option.id">
+            {{ option.description }}
+          </ion-radio>
+        </div>
+
       </div>
     </div>
   </ion-content>
   <footer class="bar bar-footer bar-stable">
-  <button class="wow button button-clear" ng-click="modal.hide()">Cancel</button>
+    <button class="wow button button-clear" ng-click="modal.hide()">Cancel</button>
+    <button class="wow button button-clear" ng-click="confirmSendCoins(data.sendTo)">Confirm Send</button>
   </footer>
 </div>

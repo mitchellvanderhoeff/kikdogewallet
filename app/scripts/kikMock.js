@@ -27,6 +27,10 @@ if (!(window.kik && window.kik.enabled)) {
          ])
       },
       send: function (to, data) {
+         if (!data) {
+            data = to;
+            to = null;
+         }
          console.log("Fake send Kik message to '" + to + "': " + JSON.stringify(data));
       },
       open: function (url) {
