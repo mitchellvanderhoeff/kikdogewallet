@@ -6,16 +6,16 @@ function SendCoinsCtrl($scope, Wallet) {
    $scope.wallet = Wallet;
    $scope.sendToOptions = [
       {
-         id: 'recipient',
-         description: 'Send message to Recipient'
+         value: 'recipient',
+         description: $scope.transaction.to.fullName
       },
       {
-         id: 'conversation',
-         description: 'Send message to a Conversation'
+         value: 'conversation',
+         description: 'A Conversation'
       },
       {
-         id: 'nobody',
-         description: "Don't send message"
+         value: 'nobody',
+         description: "Don't Send Message"
       }
    ];
 

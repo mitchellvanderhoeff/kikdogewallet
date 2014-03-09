@@ -13,10 +13,18 @@
         </h3>
       </div>
       <div class="wow card">
+        <div class="item item-divider">
+          Send Message To..
+        </div>
         <div class="list">
-          <ion-radio ng-repeat="option in sendToOptions" ng-model="data.sendTo" ng-value="option.id">
-            <small>{{ option.description }}</small>
-          </ion-radio>
+          <label class="item item-radio" ng-repeat="option in sendToOptions">
+            <input type="radio" name="group" ng-model="data.sendTo" ng-value="option.value">
+
+            <div class="item-content">
+              {{ option.description }}
+            </div>
+            <i class="radio-icon ion-checkmark"></i>
+          </label>
         </div>
 
       </div>
