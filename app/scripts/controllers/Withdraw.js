@@ -2,7 +2,7 @@
  * Created by mitch on 3/1/2014.
  */
 
-function WithdrawCtrl($scope, Wallet, $ionicLoading, InterfaceState) {
+function WithdrawCtrl($scope, Wallet, $ionicLoading, InterfaceState, QRCodeService) {
    $scope.wallet = Wallet;
    InterfaceState.sidebarDraggable = false;
 
@@ -63,8 +63,16 @@ function WithdrawCtrl($scope, Wallet, $ionicLoading, InterfaceState) {
       });
    };
 
+   $scope.scanQRCode = function () {
+      QRCodeService.scanQRCode(function (qrData) {
+         $scope.$apply(function () {
+            $scope.address = qrData;
+         })
+      })
+   };
+
    $scope.$on('$viewContentLoaded', function () {
       $scope.sideMenuController.close();
    });
 }
-WithdrawCtrl.$inject = ['$scope', 'Wallet', '$ionicLoading', 'InterfaceState'];
+WithdrawCtrl.$inject = ['$scope', 'Wallet', '$ionicLoading', 'InterfaceState', 'QRCodeService'];
