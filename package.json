@@ -18,7 +18,12 @@
       "cryptojs": "~2.5.3",
       "nodemon": "~1.0.14",
       "requirejs": "~2.1.10",
-      "mongojs": "~0.10.0"
+      "mongojs": "~0.10.0",
+      "jsqrcode": "0.0.6",
+      "canvas": "git://github.com/elspoono/node-canvas-heroku.git"
+   },
+   "devDependencies": {
+      "canvas": "~0.8.1"
    },
    "engines": {
       "node": "0.8.0"

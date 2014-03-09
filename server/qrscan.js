@@ -1,21 +1,21 @@
 /**
  * Created by mitch on 2014-03-09.
  */
-var Unirest = require('unirest');
+var Canvas = require('canvas');
+var Image = Canvas.Image;
+var qrcode = require('jsqrcode')();
 
 module.exports = function (req, res) {
    var fileurl = req.param('fileurl');
-   Unirest
-      .get('http://api.qrserver.com/v1/read-qr-code/')
-      .query({
-         fileurl: fileurl
-      })
-      .end(function (response) {
-         if (response.ok) {
-            var addressData = response.body[0].symbol[0].data;
-            res.send(addressData);
-         } else {
-            res.send(500, response.body);
-         }
-      })
+   var image = new Image();
+   image.onload = function () {
+      try {
+         var qrData = qrcode.decode(image);
+         res.send(qrData);
+      } catch (e) {
+         console.error('Unable to read QR code: ' + e);
+         res.send(500, e);
+      }
+   };
+   image.src = fileurl;
 };
