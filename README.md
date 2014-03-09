@@ -22,7 +22,7 @@
 1. Make sure you have [MongoDB](mongodb.org) and [NodeJS](nodejs.org) installed.
 2. Clone repo  
 `git clone git@github.com:mitchellvanderhoeff/kikdogewallet.git`
-3. Run `npm install` and `npm install gulp -g`
+3. Run `npm install`, `bower install` and `npm install gulp -g`
 4. Run `gulp dev`
 5. Navigate to `http://localhost:9000` with a browser
 
