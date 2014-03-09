@@ -7,14 +7,36 @@ var Wallets = require('./server/wallets');
 var TokenManager = require('./server/tokenmanager');
 var TransactionStorage = require('./server/transactions');
 var kikAuth = require('./server/kikauth');
+var qrScan = require('./server/qrscan');
 
 var express = require('express');
 var app = express();
 
 app.use(function (req, res, next) {
+   if (req.method == 'OPTIONS') {
+      // Website you wish to allow to connect
+      res.setHeader('Access-Control-Allow-Origin', 'http://localhost:9000');
+
+      // Request methods you wish to allow
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+      // Request headers you wish to allow
+      res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+      // Set to true if you need the website to include cookies in the requests sent
+      // to the API (e.g. in case you use sessions)
+      res.setHeader('Access-Control-Allow-Credentials', true);
+
+      // Pass to next layer of middleware
+   }
+   next();
+});
+
+app.use(function (req, res, next) {
    console.log(req.method + " " + req.path);
    next();
 });
+
 app.use(express.json());
 
 app.get('/token', function (req, res) {
@@ -31,6 +53,8 @@ app.get('/token', function (req, res) {
       }
    });
 });
+
+app.get('/scanQRCode', kikAuth, qrScan);
 
 app.post('/getWallet', kikAuth, function (req, res) {
    var username = req.body.username;

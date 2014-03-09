@@ -2,7 +2,7 @@
  * Created by mitch on 2014-03-09.
  */
 angular.module('kikDogeWalletApp')
-   .service('QRCodeService', ['$http', function ($http) {
+   .service('QRCodeService', ['DogecoinService', function (DogecoinService) {
       this.scanQRCode = function (callback) {
          kik.photo.get({
             quality: 0.7,
@@ -16,18 +16,16 @@ angular.module('kikDogeWalletApp')
                return;
             }
             var qrCodeURL = photos[0];
-            $http
-               .get('/scanQRCode', {
-                  params: {
-                     fileurl: qrCodeURL
-                  }
-               })
-               .success(function (data) {
-                  console.log(JSON.stringify(data)); // todo
-               })
-               .error(function (error) {
+            DogecoinService.request('/scanQRCode', {
+               fileurl: qrCodeURL
+            }, function (error, qrData) {
+               if (error || !qrData) {
+                  console.error(error);
                   callback(error, null);
-               });
+                  return;
+               }
+               callback(null, qrData);
+            })
          });
       }
    }]);
