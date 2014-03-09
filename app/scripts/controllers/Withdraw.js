@@ -2,8 +2,9 @@
  * Created by mitch on 3/1/2014.
  */
 
-function WithdrawCtrl($scope, Wallet, $ionicLoading) {
+function WithdrawCtrl($scope, Wallet, $ionicLoading, InterfaceState) {
    $scope.wallet = Wallet;
+   InterfaceState.sidebarDraggable = false;
 
    $scope.hideError = function () {
       $scope.error = null;
@@ -66,4 +67,4 @@ function WithdrawCtrl($scope, Wallet, $ionicLoading) {
       $scope.sideMenuController.close();
    });
 }
-WithdrawCtrl.$inject = ['$scope', 'Wallet', '$ionicLoading'];
+WithdrawCtrl.$inject = ['$scope', 'Wallet', '$ionicLoading', 'InterfaceState'];

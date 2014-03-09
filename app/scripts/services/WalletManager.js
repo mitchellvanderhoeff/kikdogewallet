@@ -34,7 +34,7 @@ angular.module('kikDogeWalletApp')
          $rootScope.$broadcast('walletUpdateStarted');
          DogecoinService.request('/getWallet', {
          }, function (error, walletData) {
-            if (error) {
+            if (error || !walletData) {
                console.error(error);
                $rootScope.$broadcast('walletUpdateError', error);
                return;

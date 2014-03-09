@@ -2,7 +2,9 @@
  * Created by mitch on 2/28/2014.
  */
 
-function MainCtrl($scope, $ionicSideMenuDelegate) {
+function SidebarCtrl($scope, $ionicSideMenuDelegate, InterfaceState) {
+   $scope.interfaceState = InterfaceState;
+
    $scope.menuButtons = [
       {
          type: 'button-stable',
@@ -18,4 +20,4 @@ function MainCtrl($scope, $ionicSideMenuDelegate) {
    };
 }
 
-MainCtrl.$inject = ['$scope', '$ionicSideMenuDelegate'];
+SidebarCtrl.$inject = ['$scope', '$ionicSideMenuDelegate', 'InterfaceState'];

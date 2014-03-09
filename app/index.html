@@ -20,20 +20,21 @@
 
   <link rel="stylesheet" href="styles/wow.css"/>
   <script src="app.js"></script>
-  <script src="scripts/controllers/Main.js"></script>
+  <script src="scripts/controllers/Sidebar.js"></script>
   <script src="scripts/controllers/Wallet.js"></script>
   <script src="scripts/controllers/SendCoins.js"></script>
   <script src="scripts/controllers/Withdraw.js"></script>
   <script src="scripts/controllers/History.js"></script>
   <script src="scripts/services/DogecoinService.js"></script>
+  <script src="scripts/services/InterfaceState.js"></script>
   <script src="scripts/services/WalletManager.js"></script>
   <script src="scripts/directives/selectOnClick.js"></script>
   <script src="scripts/kikMock.js"></script>
 </head>
 <body ng-app="kikDogeWalletApp">
 
-<div ng-controller="MainCtrl">
-  <ion-nav-view></ion-nav-view>
+<div ng-controller="SidebarCtrl">
+<ion-nav-view></ion-nav-view>
 </div>
 
 </body>

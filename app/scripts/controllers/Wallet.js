@@ -1,7 +1,9 @@
 /**
  * Created by mitch on 2/25/2014.
  */
-function WalletCtrl($scope, Wallet, $ionicModal) {
+function WalletCtrl($scope, Wallet, $ionicModal, InterfaceState) {
+   InterfaceState.sidebarDraggable = true;
+
    $scope.wallet = Wallet;
 
    $scope.errorMessage = null;
@@ -144,4 +146,4 @@ function WalletCtrl($scope, Wallet, $ionicModal) {
    $scope.checkPicker();
 }
 
-WalletCtrl.$inject = ['$scope', 'Wallet', '$ionicModal'];
+WalletCtrl.$inject = ['$scope', 'Wallet', '$ionicModal', 'InterfaceState'];

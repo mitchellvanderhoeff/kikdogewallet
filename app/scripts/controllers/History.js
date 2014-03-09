@@ -1,7 +1,9 @@
 /**
  * Created by mitch on 2/25/2014.
  */
-function HistoryCtrl($scope, Wallet) {
+function HistoryCtrl($scope, Wallet, InterfaceState) {
+   InterfaceState.sidebarDraggable = false;
+
    $scope.wallet = Wallet;
    $scope.transactions = [];
 
@@ -22,4 +24,4 @@ function HistoryCtrl($scope, Wallet) {
    });
 }
 
-HistoryCtrl.$inject = ['$scope', 'Wallet'];
+HistoryCtrl.$inject = ['$scope', 'Wallet', 'InterfaceState'];
