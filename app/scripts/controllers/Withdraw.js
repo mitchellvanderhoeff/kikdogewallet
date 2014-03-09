@@ -67,6 +67,7 @@ function WithdrawCtrl($scope, Wallet, $ionicLoading, InterfaceState, QRCodeServi
    $scope.scanQRCode = function () {
       QRCodeService.scanQRCode(function (error, qrData) {
          if (error) {
+            showError(error);
             return;
          }
          var extractedAddress = qrData.match(dogeAddressRegex)[0];
