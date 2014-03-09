@@ -25,6 +25,11 @@ module.exports = {
       });
    },
    verifyToken: function (username, signedToken, host, callback) {
+      if (process.env.DEBUG) {
+         console.log("Debug mode, bypassing auth");
+         callback(true);
+         return;
+      }
       Unirest
          .post('https://auth.kik.com/verification/v1/check')
          .send(signedToken)
@@ -38,11 +43,6 @@ module.exports = {
             }, {
                token: 1
             }, function (error, tokenEntry) {
-               if (process.env.DEBUG) {
-                  console.log("Debug mode, bypassing auth");
-                  callback(true);
-                  return;
-               }
                var tokenValid = (authResponse.ok && authResponse.body == tokenEntry.token && !error && tokenEntry);
                callback(tokenValid);
             });

@@ -4,7 +4,7 @@
 "use strict";
 
 var Wallets = require('./server/wallets');
-var TokenServer = require('./server/tokenserver');
+var TokenManager = require('./server/tokenmanager');
 var TransactionStorage = require('./server/transactions');
 var kikAuth = require('./server/kikauth');
 
@@ -23,7 +23,7 @@ app.get('/token', function (req, res) {
       res.send(500, "Must specify username in query");
       return;
    }
-   TokenServer.generateToken(username, function (error, token) {
+   TokenManager.generateToken(username, function (error, token) {
       if (error) {
          res.send(500, error);
       } else {
