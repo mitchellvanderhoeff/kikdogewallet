@@ -64,7 +64,10 @@ function WithdrawCtrl($scope, Wallet, $ionicLoading, InterfaceState, QRCodeServi
    };
 
    $scope.scanQRCode = function () {
-      QRCodeService.scanQRCode(function (qrData) {
+      QRCodeService.scanQRCode(function (error, qrData) {
+         if (error) {
+            return;
+         }
          $scope.$apply(function () {
             $scope.address = qrData;
          })
