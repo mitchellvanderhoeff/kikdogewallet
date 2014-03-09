@@ -45,14 +45,8 @@
       </div>
     </div>
 
-    <div class="wow card" ng-show="error">
-      <div class="wow item item-divider item-icon-right item-assertive">
-        Error
-      </div>
-      <div class="wow item item-text-wrap">
-        {{ error }}
-      </div>
-    </div>
   </ion-content>
-
+  <footer class="bar bar-footer bar-assertive" ng-show="error">
+    <div class="title">{{ error }}</div>
+  </footer>
 </ion-view>

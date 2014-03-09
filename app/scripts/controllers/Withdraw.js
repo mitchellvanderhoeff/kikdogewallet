@@ -6,13 +6,13 @@ function WithdrawCtrl($scope, Wallet, $ionicLoading, InterfaceState) {
    $scope.wallet = Wallet;
    InterfaceState.sidebarDraggable = false;
 
-   $scope.hideError = function () {
-      $scope.error = null;
-   };
-
    function showError(message) {
       $scope.error = message;
-      setTimeout($scope.hideError, 3000);
+      setTimeout(function () {
+         $scope.$apply(function () {
+            $scope.error = null;
+         });
+      }, 2000);
    }
 
    function showLoading() {

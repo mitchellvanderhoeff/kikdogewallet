@@ -21,11 +21,12 @@ function WalletCtrl($scope, Wallet, $ionicModal, InterfaceState) {
 
    function showError(message) {
       $scope.error = message;
+      setTimeout(function () {
+         $scope.$apply(function () {
+            $scope.error = null;
+         });
+      }, 2000);
    }
-
-   $scope.hideError = function () {
-      $scope.error = null;
-   };
 
    $scope.updateWallet = function () {
       $scope.wallet.update();
