@@ -63,14 +63,14 @@ function WithdrawCtrl($scope, Wallet, $ionicLoading, InterfaceState, QRCodeServi
       });
    };
 
+   var dogeAddressRegex = /(D[1-9a-zA-Z]{33})/g;
    $scope.scanQRCode = function () {
       QRCodeService.scanQRCode(function (error, qrData) {
          if (error) {
             return;
          }
-         $scope.$apply(function () {
-            $scope.address = qrData;
-         })
+         var extractedAddress = qrData.match(dogeAddressRegex)[0];
+         $scope.address = extractedAddress;
       })
    };
 
