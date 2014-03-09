@@ -15,9 +15,9 @@ function WithdrawCtrl($scope, Wallet, $ionicLoading, InterfaceState, QRCodeServi
       }, 2000);
    }
 
-   function showLoading() {
+   function showLoading(loadingMessage) {
       $scope.loading = $ionicLoading.show({
-         content: 'Withdrawing.. ' +
+         content: loadingMessage +
             '<i class="icon ion-loading-d"></i>',
          animation: 'fade-in',
          showBackdrop: true,
@@ -52,7 +52,7 @@ function WithdrawCtrl($scope, Wallet, $ionicLoading, InterfaceState, QRCodeServi
          return;
       }
 
-      showLoading();
+      showLoading('Withdrawing..');
       $scope.wallet.withdraw(address, amount, function (error) {
          hideLoading();
          if (error) {
@@ -65,7 +65,9 @@ function WithdrawCtrl($scope, Wallet, $ionicLoading, InterfaceState, QRCodeServi
 
    var dogeAddressRegex = /(D[1-9a-zA-Z]{33})/g;
    $scope.scanQRCode = function () {
+      showLoading('Processing..');
       QRCodeService.scanQRCode(function (error, qrData) {
+         hideLoading();
          if (error) {
             showError(error);
             return;
