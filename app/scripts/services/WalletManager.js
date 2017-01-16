@@ -74,7 +74,7 @@ angular.module('kikDogeWalletApp')
       };
 
       this.getTransactions = function (callback) {
-         DogecoinService.request('/getTransactions', {}, callback);
+         DogecoinService.request('/getTransactions', {'limit': 25 }, callback);
       };
 
       this.updateUserInfo();
